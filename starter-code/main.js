@@ -54,12 +54,9 @@ const generatePassword = () => {
     alert ('No option checked')
     return;
   }
-  
+
+  let randomPas= include[Math.floor(Math.random * include.length)]
 
 };
 
-const randomPassword = () => {
-  let randomPas= include[1]
-}
 
-console.log(include[1])
