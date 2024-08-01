@@ -1,0 +1,273 @@
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/*
+    2. Remove default margin
+  */
+* {
+  margin: 0;
+}
+/*
+    Typographic tweaks!
+    3. Add accessible line-height
+    4. Improve text rendering
+  */
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+/*
+    5. Improve media defaults
+  */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+/*
+    6. Remove built-in form typography styles
+  */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+/*
+    7. Avoid text overflows
+  */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+/*
+    8. Create a root stacking context
+  */
+#root,
+#__next {
+  isolation: isolate;
+}
+
+:root {
+  --clr-primary-lightgreen: #a4ffaf;
+  --clr-background: #0c0b11;
+  --clr-section: #24232b;
+  --clr-background-strength: #18171f;
+  --clr-strength: #797785;
+
+  --ff: "JetBrains Mono";
+}
+
+body {
+  background-color: var(--clr-background);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: var(--ff);
+}
+
+input:hover {
+  cursor: pointer;
+}
+
+button:hover {
+  cursor: pointer;
+}
+.password__generator {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-width: 20rem;
+}
+
+header.generator__heading {
+  color: #7e7c87;
+  text-align: center;
+  font-weight: 600;
+}
+
+section.generator__output {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--clr-section);
+  padding: 0.6rem 1.5rem;
+}
+
+section.generator__output img {
+  height: 1rem;
+}
+
+section.generator__output button {
+  border: none;
+  background-color: var(--clr-section);
+}
+
+section.generator__body {
+  background-color: var(--clr-section);
+  padding: 1rem 1.5rem;
+}
+
+.generator__within {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.length__number {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.length__number p{
+  font-size: 0.7rem;
+}
+
+.length__number h3 {
+  color: var(--clr-primary-lightgreen);
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  cursor: pointer;
+  outline: none;
+
+  height: 5px;
+}
+
+input[type="range"]::-moz-range-thumb {
+  height: 15px;
+  width: 15px;
+  background-color: #fff;
+  border-radius: 50%;
+  border: 1px solid #fff;
+}
+
+input[type="range"]:focus::-moz-range-thumb{
+    background-color: var(--clr-background);
+    border: 1px solid white;
+}
+
+input[type="range"]::-moz-range-progress {
+  background-color: var(--clr-primary-lightgreen);
+  height: 5px;
+}
+
+input[type="range"]::-moz-range-track {
+    width: 100%;
+    height: 8px;
+    cursor: pointer;
+    background: transparent;
+    background-color: var(--clr-background);
+}
+
+.options label {
+  font-size: 0.65rem;
+  margin-left: 0.2rem;
+}
+
+input[type="checkbox"] {
+  appearance: none;
+  background-color: #fff;
+}
+
+input[type="checkbox"] {
+  background-color: var(--clr-section);
+  width: 0.7em;
+  height: 0.7em;
+  border: 2px solid white;
+}
+
+input[type="checkbox"]:checked {
+  content: "";
+  background-image: url(./assets/images/icon-check.svg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: var(--clr-primary-lightgreen);
+  border: 2px solid var(--clr-primary-lightgreen);
+}
+
+.generator__strength {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--clr-background-strength);
+  padding: 0.5em 1em;
+  margin-bottom: 0.5rem;
+}
+
+.generator__strength p {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  color: var(--clr-strength);
+}
+
+.generator__strength h5 {
+  text-transform: uppercase;
+  margin-right: 5px;
+}
+
+.strength__measure {
+  display: flex;
+  align-items: center;
+}
+
+.strength {
+  border: 1px solid white;
+  height: 14px;
+  width: 5px;
+  margin-left: 3px;
+}
+
+.easy {
+  background-color: greenyellow;
+  border: 1px solid greenyellow;
+}
+
+.medium {
+  background-color: #f7cb63;
+  border: 1px solid #f7cb63;
+}
+
+.hard {
+  background-color: red;
+  border: 1px solid red;
+}
+
+#generate {
+  border: none;
+  padding: 0.6rem 0;
+  background-color: var(--clr-primary-lightgreen);
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  content: "";
+  background-image: url(./assets/images/icon-arrow-right.svg);
+  background-repeat: no-repeat;
+  background-size: 0.4rem;
+  background-position: 65%;
+}
+
+#generate:hover{
+    background-color: transparent;
+    border: 1px solid var(--clr-primary-lightgreen);
+    color: var(--clr-primary-lightgreen);
+}

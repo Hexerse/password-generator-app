@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Frontend Mentor | Password generator app</title>
+  </head>
+  <body>
+    <main class="password__generator">
+      <header class="generator__heading"><h4>Password Generator</h4></header>
+
+      <section class="generator__output">
+        <h3 id="passwordGenerated">P4$5W0rD!</h3>
+        <button id="copy">
+          <img src="./assets/images/icon-copy.svg" alt="Click here to copy" />
+        </button>
+      </section>
+
+      <section class="generator__body">
+        <div class="generator__within">
+          <div class="password__length">
+            <div class="length__number">
+              <p>Character Length</p>
+              <h3 id="passwordLength"></h3>
+            </div>
+            <input type="range" min="0" max="20" id="length" />
+          </div>
+
+          <div class="generator__options">
+            <div class="options">
+              <input type="checkbox" name="uppercase" id="upperCase" />
+              <label for="uppercase">Include Uppercase Letters</label>
+            </div>
+
+            <div class="options">
+              <input type="checkbox" name="lowercase" id="lowerCase" />
+              <label for="lowercase">Include Lowercase Letters</label>
+            </div>
+
+            <div class="options">
+              <input type="checkbox" name="numbers" id="numbers" />
+              <label for="numbers">Include Numbers</label>
+            </div>
+
+            <div class="options">
+              <input type="checkbox" name="symbols" id="symbols" />
+              <label for="symbols">Include Symbols</label>
+            </div>
+          </div>
+
+          <div class="generator__strength">
+            <p>Strength</p>
+            <div class="strength__measure">
+              <h5>Medium</h5>
+              <span class="strength medium"></span>
+              <span class="strength medium"></span>
+              <span class="strength medium"></span>
+              <span class="strength"></span>
+            </div>
+          </div>
+
+          <button class="generator__generate" id="generate" type="submit">
+            Generate
+          </button>
+        </div>
+      </section>
+    </main>
+    <script src="main.js"></script>
+  </body>
+</html>
