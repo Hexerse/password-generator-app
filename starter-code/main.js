@@ -50,13 +50,15 @@ const generatePassword = () => {
   let checkNumbers = document.getElementById("numbers").checked;
   let checkSymbols = document.getElementById("symbols").checked;
 
-  if (checkUpper + checkLower + checkNumbers + checkSymbols === 0){
-    alert ('No option checked')
+  if (checkUpper + checkLower + checkNumbers + checkSymbols === 0) {
+    alert("No option checked");
     return;
   }
 
-  let randomPas= include[Math.floor(Math.random * include.length)]
 
 };
 
+let randomPas = include[1];
+let isChecked = document.getElementById(randomPas.name);
 
+console.log(include[1].name);
