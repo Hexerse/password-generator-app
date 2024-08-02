@@ -1,7 +1,7 @@
-const passwordLength = document.getElementById("length");
-const passwordLengthText = document.getElementById("passwordLength");
-let valueLength;
-let password;
+let passwordLength = document.getElementById("length");
+let passwordLengthText = document.getElementById("passwordLength");
+let valueLength = 0;
+const form = document.getElementById("form");
 
 const types = {
   upperCase: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
@@ -9,13 +9,6 @@ const types = {
   numbers: "0123456789",
   symbols: "!@#$%^&*()_+~`|}{[]:;?><,./-=",
 };
-
-const onStart = () => {
-  passwordLength.value = 10;
-  passwordLengthText.innerHTML = 10;
-};
-
-onStart();
 
 passwordLength.addEventListener("input", (e) => {
   valueLength = passwordLength.value;
@@ -27,38 +20,54 @@ const changeLength = (valueLength) => {
 };
 
 const include = [
-  function randomupperCase() {
+  function upperCase() {
     return types.upperCase[Math.floor(Math.random() * types.upperCase.length)];
   },
 
-  function randomlowerCase() {
+  function lowerCase() {
     return types.lowerCase[Math.floor(Math.random() * types.upperCase.length)];
   },
 
-  function randomNumbers() {
+  function numbers() {
     return types.numbers[Math.floor(Math.random() * types.numbers.length)];
   },
 
-  function randomSymbols() {
+  function symbols() {
     return types.symbols[Math.floor(Math.random() * types.symbols.length)];
   },
 ];
 
 const generatePassword = () => {
-  let checkUpper = document.getElementById("upperCase").checked;
-  let checkLower = document.getElementById("lowerCase").checked;
-  let checkNumbers = document.getElementById("numbers").checked;
-  let checkSymbols = document.getElementById("symbols").checked;
+  let upperCaseCheck = document.getElementById("upperCase").checked;
+  let lowerCaseCheck = document.getElementById("lowerCase").checked;
+  let numbersCheck = document.getElementById("numbers").checked;
+  let symbolsCheck = document.getElementById("symbols").checked;
+  const passwordGenerate = document.getElementById("passwordGenerated");
 
-  if (checkUpper + checkLower + checkNumbers + checkSymbols === 0) {
+  if (upperCaseCheck + lowerCaseCheck + numbersCheck + symbolsCheck === 0) {
     alert("No option checked");
     return;
   }
 
+  let length = document.getElementById("length");
+  let password = "";
 
+  while (password.length < length.value) {
+    let randomPas = include[Math.floor(Math.random() * include.length)];
+    let isChecked = document.getElementById(randomPas.name).checked;
+    if (isChecked) {
+      password += randomPas();
+      console.log(password);
+    }
+  }
+  passwordGenerated.innerHTML = password;
 };
 
-let randomPas = include[1];
-let isChecked = document.getElementById(randomPas.name);
 
-console.log(include[1].name);
+
+const submit = (e) => {
+  e.preventDefault()
+  generatePassword();
+}
+
+form.addEventListener('submit', submit)
