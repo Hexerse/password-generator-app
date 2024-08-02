@@ -48,11 +48,24 @@ const generatePassword = () => {
     alert("No option checked");
     return;
   }
+  
+  let length = document.getElementById("length");
+  let password = "";
 
-
+  while (password.length < length.value) {
+    let randomPas = include[Math.floor(Math.random() * include.length)];
+    let isChecked = document.getElementById(randomPas.name).checked;
+    if (isChecked) {
+      password += randomPas();
+      console.log(password);
+    }
+  }
+  passwordGenerated.innerHTML = password;
 };
 
-let randomPas = include[1];
-let isChecked = document.getElementById(randomPas.name);
+const submit = (e) => {
+  e.preventDefault()
+  generatePassword();
+}
 
-console.log(include[1].name);
+form.addEventListener('submit', submit)
