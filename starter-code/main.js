@@ -27,19 +27,19 @@ const changeLength = (valueLength) => {
 };
 
 const include = [
-  function randomupperCase() {
+  function upperCase() {
     return types.upperCase[Math.floor(Math.random() * types.upperCase.length)];
   },
 
-  function randomlowerCase() {
+  function lowerCase() {
     return types.lowerCase[Math.floor(Math.random() * types.upperCase.length)];
   },
 
-  function randomNumbers() {
+  function numbers() {
     return types.numbers[Math.floor(Math.random() * types.numbers.length)];
   },
 
-  function randomSymbols() {
+  function symbols() {
     return types.symbols[Math.floor(Math.random() * types.symbols.length)];
   },
 ];
@@ -55,9 +55,8 @@ const generatePassword = () => {
     return;
   }
 
-
-};
-
+  let randomPas = include[Math.floor(Math.random()*include.length)]
+}
 let randomPas = include[1];
 let isChecked = document.getElementById(randomPas.name);
 
