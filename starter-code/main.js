@@ -1,6 +1,7 @@
 let passwordLength = document.getElementById("length");
 let passwordLengthText = document.getElementById("passwordLength");
 let valueLength = 0;
+const copyButton = document.getElementById("copy");
 const form = document.getElementById("form");
 
 const types = {
@@ -48,7 +49,7 @@ const generatePassword = () => {
     alert("No option checked");
     return;
   }
-  
+
   let length = document.getElementById("length");
   let password = "";
 
@@ -63,9 +64,19 @@ const generatePassword = () => {
   passwordGenerated.innerHTML = password;
 };
 
-const submit = (e) => {
-  e.preventDefault()
-  generatePassword();
-}
+const toClipboard = (e) => {
+  e.preventDefault();
+  let copyText = document.getElementById("passwordGenerated");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.innerHTML);
+  console.log("register");
+};
 
-form.addEventListener('submit', submit)
+const submit = (e) => {
+  e.preventDefault();
+  generatePassword();
+};
+
+copyButton.addEventListener("click", toClipboard);
+form.addEventListener("submit", submit);
