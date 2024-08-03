@@ -71,9 +71,64 @@ const toClipboard = (e) => {
   console.log("register");
 };
 
+const checkStrength = () => {
+  const checkBoxes = document.querySelectorAll(".check");
+  let value = 0;
+
+  checkBoxes.forEach((box) => {
+    if (box.checked === true) {
+      value++;
+    }
+  });
+  giveStrength(value);
+};
+
+const giveStrength = (value) => {
+  let text = document.getElementById("passwordGenerated").innerText.length;
+  if (text > 12 && value > 3) {
+    strong();
+  } else if (text > 8 && text < 12 && value > 2) {
+    medium();
+  } else {
+    weak();
+  }
+};
+
+const strong = () => {
+  const strength = document.querySelectorAll(".strength");
+  const strengthIndicator = document.querySelector(".strengthIndicator");
+  const strengthLoop = strength.forEach((strengthBlock, index) => {
+    strengthBlock.classList.add("hard");
+  });
+  strengthIndicator.innerHTML = "Strong";
+};
+
+const medium = () => {
+  const strength = document.querySelectorAll(".strength");
+  const strengthIndicator = document.querySelector(".strengthIndicator");
+  const strengthLoop = strength.forEach((strengthBlock, index) => {
+    if (index < 3) {
+      strengthBlock.classList.add("medium");
+    }
+  });
+  strengthIndicator.innerHTML = "Medium";
+};
+
+const weak = () => {
+  const strength = document.querySelectorAll(".strength");
+  const strengthIndicator = document.querySelector(".strengthIndicator");
+  const strengthLoop = strength.forEach((strengthBlock, index) => {
+    if (index < 1) {
+      strengthBlock.classList.add("easy");
+    }
+  });
+  strengthIndicator.innerHTML = "Low";
+};
+
 const submit = (e) => {
   e.preventDefault();
   generatePassword();
+  checkStrength();
 };
 
 copyButton.addEventListener("click", toClipboard);
