@@ -66,10 +66,8 @@ const generatePassword = () => {
 
 const toClipboard = (e) => {
   e.preventDefault();
-  let copyText = document.getElementById("passwordGenerated");
-  copyText.select();
-  copyText.setSelectionRange(0, 99999);
-  navigator.clipboard.writeText(copyText.innerHTML);
+  let copyText = document.getElementById("passwordGenerated").innerText;
+  navigator.clipboard.writeText(copyText);
   console.log("register");
 };
 
