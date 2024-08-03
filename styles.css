@@ -198,7 +198,7 @@ input[type="checkbox"] {
 
 input[type="checkbox"]:checked {
   content: "";
-  background-image: url(./assets/images/icon-check.svg);
+  background-image: url(./starter-code/assets/images/icon-check.svg);
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -260,7 +260,7 @@ input[type="checkbox"]:checked {
   font-size: 0.6rem;
   text-transform: uppercase;
   content: "";
-  background-image: url(./assets/images/icon-arrow-right.svg);
+  background-image: url(./starter-code/assets/images/icon-arrow-right.svg);
   background-repeat: no-repeat;
   background-size: 0.4rem;
   background-position: 65%;
